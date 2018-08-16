@@ -7,15 +7,21 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Triplicate T4c-12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "Triplicate T4c-12:antialias=true:autohint=true";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+
+/* solarized colors http://ethanschoonover.com/solarized */
+static const char s_base03[]        = "#002b36";
+static const char s_base02[]        = "#073642";
+static const char s_base01[]        = "#586e75";
+static const char s_base00[]        = "#657b83";
+static const char s_base0[]         = "#839496";
+static const char s_base1[]         = "#93a1a1";
+static const char s_base2[]         = "#eee8d5";
+static const char s_base3[]         = "#fdf6e3";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { s_base00, s_base3, s_base02 },     /* SchemeNorm light */
+	[SchemeSel]  = { s_base00, s_base2, s_base02},      /* SchemeSel light */
 };
 
 /* tagging */
@@ -56,7 +62,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", s_base3, "-nf", s_base00, "-sb", s_base2, "-sf", s_base00, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
