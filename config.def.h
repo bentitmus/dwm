@@ -8,20 +8,18 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Triplicate T4c-12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "Triplicate T4c-12:antialias=true:autohint=true";
 
-/* solarized colors http://ethanschoonover.com/solarized */
-static const char s_base03[]        = "#002b36";
-static const char s_base02[]        = "#073642";
-static const char s_base01[]        = "#586e75";
-static const char s_base00[]        = "#657b83";
-static const char s_base0[]         = "#839496";
-static const char s_base1[]         = "#93a1a1";
-static const char s_base2[]         = "#eee8d5";
-static const char s_base3[]         = "#fdf6e3";
+/* selenized colours */
+static const char s_bg_1[]  = "#ece3cc";
+static const char s_dim_0[] = "#909995";
+static const char s_bg_2[]  = "#d5cdb6";
+static const char s_fg_1[]  = "#3a4d53";
+static const char s_bg_0[]  = "#fbf3db";
+static const char s_fg_0[]  = "#53676d";
 
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { s_base00, s_base3, s_base02 },     /* SchemeNorm light */
-	[SchemeSel]  = { s_base00, s_base2, s_base02},      /* SchemeSel light */
+	/*               fg      bg      border   */
+	[SchemeNorm] = { s_fg_0, s_bg_1, s_fg_1}, /* SchemeNorm light */
+	[SchemeSel]  = { s_fg_0, s_bg_0, s_fg_1}, /* SchemeSel light */
 };
 
 /* tagging */
@@ -62,7 +60,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", s_base3, "-nf", s_base00, "-sb", s_base2, "-sf", s_base00, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", s_bg_1, "-nf", s_fg_0, "-sb", s_bg_0, "-sf", s_fg_0, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
